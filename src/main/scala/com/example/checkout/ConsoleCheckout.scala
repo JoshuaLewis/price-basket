@@ -10,6 +10,13 @@ trait ConsoleCheckout {
     currentDiscounts
   }
 
+  /**
+    * Determine whether the basket contains the required items to [Trigger] a
+    * voucher reward.
+    *
+    * @param basket The current basket.
+    * @return Any applicable vouchers for the given basket.
+    */
   def checkDiscounts(basket: Map[Long, (ShopItem, Int)]): Seq[Voucher] = {
 
         var vouchers: Seq[Voucher] = Seq()
@@ -28,7 +35,12 @@ trait ConsoleCheckout {
 
       }
 
-
+  /**
+    * Convert a basket order to a receipt of purchase
+    *
+    * @param basket The items to provide a receipt for.
+    * @return A seq of purchases containing items, prices and discounts
+    */
   def finalizeOrder(basket: Map[Long, (ShopItem, Int)]): Seq[Receipt] = {
 
     // Compare the cart against current discounts
@@ -42,6 +54,13 @@ trait ConsoleCheckout {
     }.toSeq
   }
 
+  /**
+    * Apply as many vouchers as possible to the selected item.
+    *
+    * @param group An inventory item and the quantity requested
+    * @param discounts Potential discounts to apply
+    * @return The prices and discounts applied to an item in the basket
+    */
   def applyVouchers(group: (ShopItem, Int), discounts: Seq[Voucher]): Receipt = {
 
     val subTotal: BigDecimal = group._1.unitPrice * group._2

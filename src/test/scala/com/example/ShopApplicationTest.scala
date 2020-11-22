@@ -20,6 +20,10 @@ class ShopApplicationTest extends AnyWordSpec {
       app.main(Array("soup", "soup", "Bread", "bread"))
     }
 
+    "Apply All discounts" in {
+      app.main(Array("soup", "soup", "Bread", "bread", "apples", "apples"))
+    }
+
   }
 
 
