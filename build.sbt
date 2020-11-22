@@ -4,7 +4,7 @@ lazy val commonSettings = Seq(
   libraryDependencies ++= Seq(
     "org.scalatest" %% "scalatest" % "3.2.0" % Test
     ),
-  assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false),
+  assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = true),
   assemblyJarName in assembly := s"${name.value}-${version.value}.jar"
   )
 

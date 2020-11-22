@@ -6,9 +6,23 @@ And a nice installation guide can be found [here](https://docs.scala-lang.org/ge
 Once set up
 The easiest way to run the application is to use sbt from the command line:
 (which should work on Mac/Windows/linux - tested on Mac only)
+
+Git clone this repo.
+from the created repo (e.g. /price-basket)
+
 Example:
 ```
 sbt "run apples apples soup"
 ```
 
 This should run the application with the arguments following run (apples apples soup)
+
+Alternatively you can build the jar using:
+```
+sbt assembly
+```
+This will create the jar in the folder target/scala-2.13/
+Which will include all the of the scala dependencies so will run via java -jar, eg.
+```
+java -jar <name>.jar apples apples apples
+```
