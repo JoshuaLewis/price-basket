@@ -71,7 +71,7 @@ trait ConsoleCheckout {
       } else {
         discounts.head.percentageDiscount * group._1.unitPrice * discounts.size
       }.setScale(2, BigDecimal.RoundingMode.HALF_EVEN)
-      (s"${discounts.head.name}: ${sum}", sum)
+      (s"${discounts.head.name}: \u00A3${sum}", sum)
     } else ("(No Discounts)", 0.00)
 
     val total: BigDecimal = subTotal - discount._2
